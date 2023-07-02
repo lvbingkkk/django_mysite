@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE|default:'en-us' }}" dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr,auto' }}">
+    <head>
+        <meta charset="utf-8">
+        <title>The dictionary list !</title>
+    </head>
+    <body>
+        {% load static %}
+        <img src={% static 'img/dj.png' %} height=200px>
+        <p>uername: {{ username }} </p>
+        <p>password: {{ password }}</p>
+
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE|default:'en-us' }}" dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr,auto' }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="save" content="history">
+        <title>登 陆!</title>
+    </head>
+    <style>
+        .container{
+            margin: 180px auto;
+            border-radius: 12px;
+            padding: 60px 20px 60px 20px;
+            width: 400px;
+            text-decoration: none;
+            background-color: #99a9dd;
+            display: flex;
+            justify-content: center;
+
+        }
+        .denglu{
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        html, body {
+            background-color: #284b63;;
+            color: #636b6f;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 200;
+        }
+    </style>
+    <body>
+        <div class='container'>
+            <div >
+                <form id='denglu' class='denglu' action='/user/login/' method='post' >
+                    <p>用户名: <input type='text' name='username' autocomplete="off"></p>
+                    <p>密 码: <input type='password' name='password' ></p>
+
+                    <p><input type='button' value='登 陆' onclick="tijiao()"></p>
+                    {% comment %} <p><input type='submit' value='登 陆' ></p> {% endcomment %}
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+
+    function tijiao() {
+        console.log('reset')
+        submit(function(){
+            document.getElementById('denglu').reset()
+        })
+    }
+    function submit(callback){
+        document.getElementById("denglu").submit()
+        callback()
+    }
+    {% comment %} function reset(){
+        document.getElementById('denglu').reset()
+    } {% endcomment %}
+
+</script>

@@ -1,0 +1,287 @@
+{% load i18n %}
+<!doctype html>
+{% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+<html lang="{{ LANGUAGE_CODE|default:'en-us' }}" dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr,auto' }}">
+    <head>
+        <meta charset="utf-8">
+        <title>{% translate "The install worked successfully! Congratulations!" %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/admin/css/fonts.css">
+        <style>
+          html {
+            line-height: 1.15;
+          }
+          a {
+            color: #19865C;
+          }
+
+          body {
+            max-width: 960px;
+            color: #525252;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", ui-system, sans-serif;
+            margin: 0 auto;
+          }
+          main {
+            text-align: center;
+          }
+          main article{
+            background-color: #6DeCaD;
+            padding: 0 25px
+          }
+          h1, h2, h3, h4, h5, p, ul {
+            padding: 0;
+            margin: 0;
+            font-weight: 400;
+          }
+          header {
+            display: grid;
+            grid-template-columns: auto auto;
+            align-items: self-end;
+            justify-content: space-between;
+            gap: 7px;
+            padding-top: 20px;
+            padding-bottom: 10px;
+          }
+          .logo {
+            font-weight: 700;
+            font-size: 1.375rem;
+            text-decoration: none;
+          }
+          .figure {
+            margin-top: 19vh;
+            max-width: 265px;
+            position: relative;
+            z-index: -9;
+            overflow: visible;
+          }
+          .exhaust__line {
+            animation: thrust 70ms 100 ease-in-out alternate;
+          }
+          .smoke {
+            animation: smoke .1s 70 ease-in-out alternate;
+          }
+          @keyframes smoke {
+            0% {
+              transform: translate3d(-5px, 0, 0);
+            }
+            100% {
+              transform: translate3d(5px, 0, 0);
+            }
+          }
+          .flame {
+            animation: burnInner2 .1s 70 ease-in-out alternate;
+          }
+          @keyframes burnInner2 {
+            0% {
+              transform: translate3d(0, 0, 0);
+            }
+            100% {
+              transform: translate3d(0, 3px, 0);
+            }
+          }
+          @keyframes thrust {
+            0% {
+              opacity: 1;
+            }
+            100% {
+              opacity: .5;
+            }
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .exhaust__line,
+            .smoke,
+            .flame {
+              animation: none;
+            }
+          }
+          h1 {
+            font-size: 1.375rem;
+            max-width: 32rem;
+            margin: 5px auto 0;
+          }
+          main p {
+            line-height: 1.25;
+            max-width: 26rem;
+            margin: 15px auto 0;
+          }
+          footer {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 5px;
+            padding: 25px 0;
+            {% comment %} position: fixed; {% endcomment %}
+            box-sizing: border-box;
+            left: 50%;
+            bottom: 0;
+            width: 960px;
+            {% comment %} transform: translateX(-50%); {% endcomment %}
+            transform-style: preserve-3d;
+            border-top: 1px solid #efefef;
+          }
+          .option {
+            display: grid;
+            grid-template-columns: min-content 1fr;
+            gap: 10px;
+            box-sizing: border-box;
+            text-decoration: none;
+          }
+          .option svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            fill: gray;
+            border: 1px solid #d6d6d6;
+            padding: 5px;
+            border-radius: 100%;
+          }
+          .option p {
+            font-weight: 300;
+            line-height: 1.25;
+            color: #525252;
+            display: table;
+          }
+          .option .option__heading {
+            color: #19865C;
+            font-size: 1.25rem;
+            font-weight: 400;
+          }
+          @media (max-width: 996px) {
+            body, footer {
+              max-width: 780px;
+            }
+          }
+          @media (max-width: 800px) {
+            footer {
+              height: 100%;
+              grid-template-columns: 1fr;
+              gap: 60px;
+              position: relative;
+              padding: 25px;
+            }
+            .figure {
+              margin-top: 10px;
+            }
+            main {
+              padding: 0 25px;
+            }
+            main h1 {
+              font-size: 1.25rem;
+            }
+            header {
+              grid-template-columns: 1fr;
+              padding-left: 20px;
+              padding-right: 20px;
+            }
+            footer {
+              width: 100%;
+              margin-top: 50px;
+            }
+          }
+          @media (min-width: 801px) and (max-height: 730px) {
+            .figure {
+              margin-top: 80px;
+            }
+          }
+          @media (min-width: 801px) and (max-height: 600px) {
+            footer {
+              position: relative;
+              margin: 135px auto 0;
+            }
+            .figure {
+              margin-top: 50px;
+            }
+          }
+          .sr-only {
+            clip: rect(1px, 1px, 1px, 1px);
+            clip-path: inset(50%);
+            height: 1px;
+            overflow: hidden;
+            position: absolute;
+            white-space: nowrap;
+            width: 1px;
+          }
+        </style>
+    </head>
+    <body>
+      <header>
+
+      </header>
+      <main>
+
+        <br>
+        <hr>
+        <article>
+          <br><br>
+          <h1>  Samadhi Maya the illusion of the self </h1>
+
+          <br><br>
+          &nbsp;&nbsp;&nbsp; Samadhi is an ancient Sanskrit word for which there's no modern equivalent.
+          There's a fundamental challenge with making a film about Samadhi. Samadhi points to something that
+          can't be conveyed on the level of mind. This film is simply the outer manifestation of my own inner journey.
+          The intention is not to teach you about Samadhi or provide information for your mind, but to inspire you to
+          directly discover your true nature.
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Samadhi是一个古老的梵语单词，没有现代对应的词。制作一部关于三摩地的电影是一个根本性的挑战。三摩地指出了一些在头脑层面上无法传达的东西。这部电影只是我自己内心旅程的外在表现。意图不是教你关于三摩地的知识或为你的思想提供信息，而是激励你直接发现你的真实本性。
+          <br> <br>
+          &nbsp;&nbsp;&nbsp; Samadhi is relevant now more than ever. We are at a time in history where
+          we have not only forgotten Samadhi, but we've forgotten what we forgot. This forgetting is Maya, the illusion of
+          the self. As humans, ost of us live immersed in our daily lives with little thought of who we are , why we are
+          here, or where we're going. Most of us have never realized the true self, the soul, or what the Buddha called
+          anata, that which is beyond name and form. beyond thinking. As a result , we believe we ar these limited bodies.
+          We live in fear, either conscious or unconscious, that the limited self structure that we are identified with
+          will die. In today's world, the vast majority of people who are engaged in religious or spiritual practices, such
+          as yoga, prayer, meditation, chanting, or any kind of ritual, or practicing techniques which are conditioned which
+          means they are just part of the ego construct. The seeking and the activity isn't the problem. Thinking you have
+          found the answer in some external form is the problem. Spirituality, in its most common form, is on different than
+          the pathological thinking that is going on everywhere. It is a further agitation of the mind. More human doing
+          as opposed to human being.
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;三摩地现在比以往任何时候都更有意义。我们正处于一个历史时期，我们不仅忘记了三摩地，而且忘记了我们忘记的东西。这种遗忘是玛雅，自我的幻觉。作为人类，我们沉浸在日常生活中，很少考虑我们是谁，我们为什么在这里，或者我们要去哪里。我们大多数人从未意识到真正的自我，灵魂，或佛陀所说的anata，这超越了名字和形式。超越了思考。因此，我们认为我们是这些有限的机构。我们生活在有意识或无意识的恐惧中，即我们认同的有限自我结构会死亡。在当今世界，绝大多数人从事宗教或精神实践，如瑜伽、祈祷、冥想、念诵或任何类型的仪式，或练习有条件的技巧，这意味着他们只是自我结构的一部分。寻求和活动不是问题。认为你已经以某种外部形式找到了答案，这就是问题所在。灵性，以其最常见的形式，与到处都在发生的病态思维不同。这是心灵的进一步激动。更多的人类做事，而不是人。
+          <br><br>
+          &nbsp;&nbsp;&nbsp;The ego construct wants more money, more power, more love, more of everything. Those on the
+          so-called spiritual path desire to be more spiritual, more awake, more equanimous, more peaceful, more enlightened.
+          The danger for you watching this film is that your mind will want to acquire Samadhi. Even more dangerous is that
+          your mind might think it has acquired Samadhi. Whenever there's a desire to attain something, you can be sure it's
+          the ego construct at work. Samadhi is not about attaining or adding something more to yourself. To realize Samadhi
+          is to learn to die before you die. Life and death are like yin and yang, an inseparable continuum endlessly unfolding
+          with no beginning and no end. When we push away death, we also push away life. When you experience the truth directly
+          of who you are, there is no longer any fear of life or death.
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;自我构造需要更多的钱，更多的权力，更多的爱，更多的一切。那些在所谓的精神道路上的人渴望更有灵性，更清醒，更平静，更和平，更开明。你看这部电影的危险在于，你的头脑会想要获得三摩地。更危险的是，你的头脑可能会认为它已经获得了三摩地。每当有获得某样东西的欲望时，你可以确定这是工作中的自我构造。Samadhi不是要获得或给自己增加更多的东西。意识到三摩地就是学会在死前死去。生与死就像阴阳，一个不可分割的连续体无休止地展开，没有开始也没有结束。当我们推开死亡时，我们也推开生命。当你直接体验到自己是谁的真相时，就不再有生或死的恐惧。
+
+          <br><br>
+          <br><br>
+        </article>
+        <br>
+
+
+      </main>
+      <footer>
+        <a class="option" href="https://docs.djangoproject.com/en/{{ version }}/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 017 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"></path>
+          </svg>
+          <p>
+            <span class="option__heading">{% translate "Django Documentation" %}</span><span class="sr-only">.</span><br>
+            {% translate 'Topics, references, &amp; how-to’s' %}
+          </p>
+        </a>
+        <a class="option" href="https://docs.djangoproject.com/en/{{ version }}/intro/tutorial01/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path>
+          </svg>
+          <p>
+            <span class="option__heading">{% translate "Tutorial: A Polling App" %}</span><span class="sr-only">.</span><br>
+            {% translate "Get started with Django" %}
+          </p>
+        </a>
+        <a class="option" href="https://www.djangoproject.com/community/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M16.5 13c-1.2 0-3.07.34-4.5 1-1.43-.67-3.3-1-4.5-1C5.33 13 1 14.08 1 16.25V19h22v-2.75c0-2.17-4.33-3.25-6.5-3.25zm-4 4.5h-10v-1.25c0-.54 2.56-1.75 5-1.75s5 1.21 5 1.75v1.25zm9 0H14v-1.25c0-.46-.2-.86-.52-1.22.88-.3 1.96-.53 3.02-.53 2.44 0 5 1.21 5 1.75v1.25zM7.5 12c1.93 0 3.5-1.57 3.5-3.5S9.43 5 7.5 5 4 6.57 4 8.5 5.57 12 7.5 12zm0-5.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 5.5c1.93 0 3.5-1.57 3.5-3.5S18.43 5 16.5 5 13 6.57 13 8.5s1.57 3.5 3.5 3.5zm0-5.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"></path>
+          </svg>
+          <p>
+            <span class="option__heading">{% translate "Django Community" %}</span><span class="sr-only">.</span><br>
+            {% translate "Connect, get help, or contribute" %}
+          </p>
+        </a>
+      </footer>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE|default:'en-us' }}" dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr,auto' }}">
+    <head>
+        <meta charset="utf-8">
+        <title>注册!</title>
+    </head>
+    <body>
+        <form action='/user/reg/' method='post'>
+            <p>用户名: <input type='text' name='username'></p>
+            <p>密码: <input type='password' name='password_1'></p>
+            <p>再次输入密码: <input type='password' name='password_2'></p>
+            <p><input type='submit' value='注册'></p>
+        </form>
+
+    </body>
+</html>

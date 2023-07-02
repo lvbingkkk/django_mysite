@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en-us" style="background-color: #295C82">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Django-Home</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 200;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+
+            .top-right > span {
+                color:#A9D7D0;
+                padding: 0 25px;
+                font-size: 14px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+            .content {
+                text-align: center;
+            }
+
+            .title {
+                font-size: 84px;
+            }
+
+            .links > a {
+                color:#A9D730;
+                padding: 0 25px;
+                font-size: 14px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+
+            #animation, #timer{
+                color:#8DB5E6;
+                font-size: 35px;
+                width: 140px;
+                height: 50px;
+                position: absolute;
+
+            }
+            #timer{
+                font-size: 25px;
+                width: 250px;
+                height: 50px;
+                position: absolute;
+                /*top:350px;*/
+
+            }
+        </style>
+
+
+
+    </head>
+<body style="background-color: #295C82">
+
+    <div style=" position: absolute;width: 100% ;height: 860px;min-height: 480px;
+                        background-color:#295C82;background: linear-gradient(145deg,  #292f52 ,#295C82); transform: skewY(7deg);transform-origin: 100%;
+                        background-size: cover ">
+
+    </div>
+
+    <div class="flex-center position-ref " >
+                <div class="top-right links">
+                    {% if request.session.username %}
+                    <span>
+                        {{request.session.username}}
+                    </span>
+                    <a href="{% url 'logout' %}">Logout</a>
+                    <a href="{% url 'note' %}">进入我的笔记</a>
+                    {% else %}
+                        {% if request.COOKIES.username %}
+                        <span>
+                            {{request.COOKIES.username}}
+                        </span>
+                        <a href="{% url 'logout' %}">Logout</a>
+                        <a href="{% url 'note' %}">进入我的笔记</a>
+                        {% else %}
+                        <a href="{% url 'login' %}">Login</a>
+                        <a href="{% url 'register' %}">Register</a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            <div class="content">
+
+                <div style="font-size:80px;float: left;margin-top: 180px;color:#A9D730">
+
+
+                    <canvas id="canvas1" style="width: 100px;height: 60px;border-radius:80% 2% 90% 2%;overflow:hidden;"></canvas>
+
+                    <span> Welcom  To</span>
+                </div>
+
+                <div style="clear: both"></div>
+
+
+                <div  id="animation" ><a href="/maotou" style="text-decoration: none;">🦉 </a>-->-></div>
+                <br><br>
+
+
+                <div  id="timer"><p>rrr</p></div>
+
+                <div style="clear: both"></div>
+                <br> <br> <br> <br><br><br><br><br><br><br>
+                <div class="title m-b-md" style="color:#55A5FF;float: right">
+
+
+                    Ikoeng's Magic Lab<br>
+                    <span style="color:#8DB5E6;font-size: 50px;float: right">--The 83rd Port
+                            <hr style="background-color:#11d1d1;/*background:#1c7;*/height: 1.5px;border: none">
+                    </span>
+                </div>
+                <div style="clear: both">
+
+                    <div class="links" >
+                        <a href="/threads"> 论 坛 </a>
+                        <a href="https://314843358h.imdo.co/">我的魔法学院</a>
+                        <a href="https://314843358h.imdo.co/register.php">魔法学院通行证</a>
+                        <a href="/colors">调色板</a>
+                        <a href="/armies">军队系统（有待改善）</a>
+
+
+                        <a href="https://314843358h.imdo.co/study/yanzhengma.php">双色球生成器</a>
+                        <a href="/yuansu">元素周期表</a>
+                        <a href="https://github.com/laravel/laravel">GitHub</a>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    var pos =0;
+    var box = document.getElementById("animation");
+    var timer = document.getElementById("timer");
+    var pos2=document.body.clientWidth-220;
+    var t = setInterval(move, 20);
+
+    function move() {
+
+        var d = new Date();
+        var y = d.getFullYear();
+        var mo = d.getMonth()+1;
+        if (mo < 10) {
+            mo="0"+mo;
+        }
+//这个是星期几。。！！
+        /*var day = d.getDay();
+        if (day < 10) {
+            day="0"+day;
+        };*/
+
+        var day = d.getDate();
+        if (day<10) {
+            day="0"+day;
+        }
+
+        var h = d.getHours();
+        if (h < 10) {
+            h="0"+h;
+        }
+
+        var m = d.getMinutes();
+        if (m < 10) {
+            m="0"+m;
+        }
+
+        var s = d.getSeconds();
+        if (s < 10) {
+            s="0"+s;
+        }
+
+
+        var w = document.body.clientWidth;
+        timer.innerHTML = y+"-"+mo+"-"+day+"/" +h+":"+m+":"+s;
+        /*从右侧直接闪到左侧：
+        if (pos >= w+60) {
+            pos=-220;
+            // clearInterval(t);
+        }
+        else {
+            pos += 0.5;
+            box.style.left = pos+"px";
+            timer.style.left = pos-40+"px";
+
+        }*/
+
+        //左右两侧来回跑：调整窗口的时候会有bug，缩小的时候解决了，扩宽窗口的bug有待解决；；
+        //烧脑；；；；
+        if (pos >= w-220 ) {
+
+            if (pos2 > 0 && pos2<=w-220) {
+                pos2 -=1;
+                box.style.left = pos2+"px";
+                timer.style.left = pos2-40+"px";
+            }
+            //解决缩小窗口宽度问题
+            else if (pos2>w-220) {
+                pos2 =w-220-1;
+                box.style.left = w-220+"px";
+                timer.style.left = w-40-220+"px";
+            }
+            else {
+                pos = 0;
+                pos2 = w-220;
+            }
+
+        }else{
+            pos +=1;
+            box.style.left = pos+"px";
+            timer.style.left = pos-40+"px";
+            //解决扩宽窗口位置跳动问题
+            pos2=w-220;
+
+        }
+
+    }
+</script>

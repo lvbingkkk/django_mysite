@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE|default:'en-us' }}" dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr,auto' }}">
+    <head>
+        <meta charset="utf-8">
+        <title>添加笔记</title>
+    </head>
+    <body>
+        <form action="/note/add_note/" method="post">
+            {% comment %} disabled 后端就得不到值了 {% endcomment %}
+            <input  style="display:none" name='author_id' value='{{ author }}'  >
+            标题:<input  name='title'>
+            内容:<textarea name='content'></textarea>
+            <input type='submit' value="添加笔记">
+        </form>
+
+
+    </body>
+</html>

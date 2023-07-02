@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE|default:'en-us' }}" dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr,auto' }}">
+    <head>
+        <meta charset="utf-8">
+        <title>Music!</title>
+    </head>
+    <body>
+        <p>Music</p>
+        <p>{{ one_book.0.pub }}
+        <table border=1>
+            <tr>
+                <th>
+                    id
+                </th>
+                <th>
+                    name
+                </th>
+                <th>
+                    price
+                </th>
+                <th>
+                    author
+                </th>
+                <th>
+                    pub
+                </th>
+                <th>op</th>
+            </tr>
+            {% for book in all_book %}
+                <tr>
+                    <td>{{ book.id }}</td>
+                    <td>{{ book.name }}</td>
+                    <td>{{ book.price }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.pub }}</td>
+                    <td>
+                        <a href="/music/update_book/{{ book.id }}">更新</a>
+                        <a href="/music/del_book/{{ book.id }}">删除</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

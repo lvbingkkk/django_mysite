@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE|default:'en-us' }}" dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr,auto' }}">
+    <head>
+        <meta charset="utf-8">
+        <title>Music!</title>
+    </head>
+    <body>
+        <p>
+           更新:
+        </p>
+
+        <form action="/music/update_book/{{ book.id }}/" method='post' >
+            {% csrf_token %}
+            <p>
+                title <input type='text' value="{{ book.name }}" name="name">
+            </p>
+            <p>
+                author <input type='text' value="{{ book.author }}" disabled="disabled">
+            </p>
+            <p>
+                pub <input type='text' value="{{ book.pub }}" disabled="disabled">
+            </p>
+            <p>
+                price <input type='text' value="{{ book.price }}" name="price">
+            </p>
+            <p>
+                <input type='submit' value="更 新">
+            </p>
+        </form>
+    </body>
+</html>
