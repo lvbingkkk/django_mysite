@@ -6,6 +6,7 @@
     </head>
     <body>
         <form action="/note/add_note/" method="post">
+            {% csrf_token %}
             {% comment %} disabled 后端就得不到值了 {% endcomment %}
             <input  style="display:none" name='author_id' value='{{ author }}'  >
             标题:<input  name='title'>

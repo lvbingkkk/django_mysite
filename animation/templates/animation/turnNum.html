@@ -1,0 +1,22 @@
+<!doctype html>
+
+<html lang="{{ LANGUAGE_CODE|default:'en-us' }}" dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr,auto' }}">
+    <head>
+        <meta charset="utf-8">
+        <title>各进制转换</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body style="background:#ccc;">
+      <div><p>请输入要转换的数字,二、八、十六进制分别以0b,0o,0x开头:</p>
+        <form action="/animation/turnNum/" method="post" >
+          <input name='inputValue' autocomplete="off">
+          <input type='submit' value="转换">
+        </form>
+        <p>{{ res }}</p>
+
+      </div>
+
+    </body>
+</html>

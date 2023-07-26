@@ -34,7 +34,7 @@ DEBUG = True
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = ['https://40e8-182-32-159-50.ngrok-free.app']
+CSRF_TRUSTED_ORIGINS = ['https://571e-182-32-159-50.ngrok-free.app','https://314843358h.imdo.co','https://3148k433o8.zicp.fun']
 
 
 # Application definition
@@ -48,7 +48,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'music',
     'user',
-    'note'
+    'note',
+    'animation',
+    'army'
 ]
 
 MIDDLEWARE = [
@@ -59,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'middleware.mymiddleware.ExceptonMw',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -77,6 +80,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            # 'file_charset': 'utf8mb4_general_ci'
         },
     },
 ]
@@ -94,9 +98,11 @@ DATABASES = {
         # 'NAME': BASE_DIR / 'db.sqlite3',
         'NAME': 'mysite',
         'USER': 'root',
-        'PASSWORD': '123456',
+        'PASSWORD': 'bing6117',
         'HOST': '127.0.0.1',
         'PORT': '3306',
+        'OPTIONS': {'charset': 'utf8mb4'},
+
     }
 }
 
@@ -138,18 +144,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
+# django-admin collectstatic
+# python3 manage.py collectstatic
+STATIC_ROOT =  BASE_DIR / 'abc'
+
 STATIC_URL = 'statics/'
+# STATIC_URL = 'https://adba-182-32-159-50.ngrok-free.app/'
+
+
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
 
-# django-admin collectstatic¶
-# python3 manage.py collectstatic
-STATIC_ROOT =  BASE_DIR / 'abc'
-
-
+#不知道啥用:
 STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
@@ -166,3 +175,15 @@ STORAGES = {
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/user/login'
+
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.dummy.EmailBackend"
+# rvidfmuxrhrbbghj
+DEFAULT_FROM_EMAIL = "443647090@qq.com"
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = "443647090@qq.com"
+EMAIL_HOST_PASSWORD = 'rvidfmuxrhrbbghj'
+EMAIL_USE_TLS = False

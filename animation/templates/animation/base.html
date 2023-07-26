@@ -1,0 +1,54 @@
+<!doctype html>
+
+<html lang="{{ LANGUAGE_CODE|default:'en-us' }}" dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr,auto' }}">
+    <head>
+        <meta charset="utf-8">
+        {% block title %}
+          <title>动画基板</title>
+        {% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+      {% load static %}
+
+      <header>
+        <a href="{% url 'base' %}">base</a>
+      </header>
+      <main>
+
+        <br>
+        {% block p %}
+          <p >0</p>
+          <img src="{% static 'img/bird184_088.jpg' %}">
+        {% endblock %}
+        <hr>
+
+        <br>
+
+
+      </main>
+      <footer>
+        <p>footer</p>
+      </footer>
+    </body>
+</html>
+{% block script %}
+
+<script>
+  window.onload = function (){
+    setTimeout(gonext
+    ,500)
+  }
+  function gonext(){
+
+    console.log(window.location)
+    {% comment %} window.location.assign(location.hostname+"/animation/one") {% endcomment %}
+    {% comment %} window.open(location.hostname+'/animation/one') {% endcomment %}
+    window.location.replace(location.origin+'/animation/one')
+
+    {% comment %} window.location.assign(location.origin+'/animation/one') {% endcomment %}
+
+  }
+</script>
+{% endblock %}

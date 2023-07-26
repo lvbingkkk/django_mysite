@@ -1,10 +1,17 @@
+from audioop import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import never_cache
+
 # Create your views here.
+REDIRECT_FIELD_NAME = "next"
+
 @csrf_exempt
 def reg_view(request):
     # 注册
@@ -37,7 +44,11 @@ def reg_view(request):
         # return HttpResponse('注册成功')
         return HttpResponseRedirect('/home')
 
+
+
 @csrf_exempt
+@never_cache
+# def login_view(self, request, extra_context=None):
 def login_view(request):
     if request.method == 'GET':
         print('keys:',request.session.keys())

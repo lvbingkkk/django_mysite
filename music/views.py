@@ -4,6 +4,7 @@ from .models import Books
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.db.models import Q
 from django.middleware.csrf import get_token
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def index(request):
@@ -28,6 +29,12 @@ def index(request):
 def article(request):
     return render(request, 'music/article.html')
 
+
+def play_audio(request):
+    return render(request, 'music/demo.html')
+
+# @csrf_protect 没用
+@login_required
 def create_book(request):
      # 插入:
     book = Books.objects.create(name = "摘眼镜", author = "鲁班", price = 99.225, pub = "东方出版社")
@@ -58,6 +65,7 @@ def update_book(request, book_id):
 
 
 # @csrf_protect 没用
+@login_required
 def del_book(request, book_id):
 
     if not book_id:

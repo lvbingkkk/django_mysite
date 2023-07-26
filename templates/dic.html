@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="{% static 'favicon.ico' %}"  type="image/x-icon">
-    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
 
     <meta name="description" content="An app to earn money"/>
     <meta name="author" content="Ikoeng">
@@ -257,48 +257,3 @@
     </footer>
 </body>
 </html>
-<script>
-    function search() {
-        $.ajax({
-            method:'get',
-
-          //  method:'post',
-            //url:'https://3148k433o8.zicp.fun/data',
-            //url:'https://3148k433o8.zicp.fun/greet',
-
-            url: 'http://127.0.0.1:8080/greet',
-            data:{"name":"Dave","kataras":"what"},
-            //headers: {
-              //  'token': "U2PGBjguSuJg",
-                //'version': "1.0",
-               //  'from': "test",
-               //},
-            //dataType:'json',
-            success: function (res) {
-                //var obj = JSON.parse(res);
-                //console.log(obj)
-                //console.log(res.code)
-                console.log(res)
-                if (res != '') {
-                    alert(res.msg);
-                }
-                else {
-                    alert("NO Response!");
-
-
-                }
-            },
-            //beforeSend: function(xhr) {
-
-              //  xhr.setRequestHeader("Access-Control-Allow-Origin","test");
-
-          //  },
-            error:function (msg) {
-                alert(msg.statusText);
-                //console.log(msg.statusText)
-
-            }
-        });
-    }
-
-</script>

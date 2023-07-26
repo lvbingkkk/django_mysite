@@ -1,8 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en-us" style="background-color: #295C82">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="{% static 'favicon.ico' %}"  type="image/x-icon">
 
         <title>Django-Home</title>
 
@@ -145,16 +147,16 @@
                 <div style="clear: both">
 
                     <div class="links" >
-                        <a href="/threads"> 论 坛 </a>
+                        <a href="/"> 论 坛 </a>
                         <a href="https://314843358h.imdo.co/">我的魔法学院</a>
-                        <a href="https://314843358h.imdo.co/register.php">魔法学院通行证</a>
-                        <a href="/colors">调色板</a>
-                        <a href="/armies">军队系统（有待改善）</a>
+                        <a href="https://3148k433o8.zicp.fun/register.php">魔法学院通行证</a>
+                        <a href="{% url 'turnNum' %}">进制转换</a>
+                        <a href="{% url 'hero_list' %}">军队系统</a>
 
 
-                        <a href="https://314843358h.imdo.co/study/yanzhengma.php">双色球生成器</a>
+                        <a href="https://3148k433o8.zicp.fun/study/yanzhengma.php">双色球生成器</a>
                         <a href="/yuansu">元素周期表</a>
-                        <a href="https://github.com/laravel/laravel">GitHub</a>
+                        <a href="{% url 'play_audio' %}">Music</a>
                     </div>
                 </div>
                 <hr>
@@ -179,7 +181,7 @@
         if (mo < 10) {
             mo="0"+mo;
         }
-//这个是星期几。。！！
+        //这个是星期几。。！！
         /*var day = d.getDay();
         if (day < 10) {
             day="0"+day;

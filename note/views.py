@@ -17,7 +17,7 @@ def list_view(request):
     notes = author.note_set.all()
     print(notes)
     try:
-        content = notes[0].content
+        content = notes[2].content
         print(content)
     except Exception as e:
         print(e)

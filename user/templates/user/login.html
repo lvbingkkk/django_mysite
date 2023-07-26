@@ -33,19 +33,19 @@
     <body>
         <div class='container'>
             <div >
-                <form id='denglu' class='denglu' action='/user/login/' method='post' >
+                <form id='denglu' class='denglu' action='/user/login/' method='post' >{% csrf_token %}
                     <p>用户名: <input type='text' name='username' autocomplete="off"></p>
                     <p>密 码: <input type='password' name='password' ></p>
 
-                    <p><input type='button' value='登 陆' onclick="tijiao()"></p>
-                    {% comment %} <p><input type='submit' value='登 陆' ></p> {% endcomment %}
+                    {% comment %} <p><input type='button' value='登 陆' onclick="tijiao()"></p> {% endcomment %}
+                    <p><input type='submit' value='登 陆' ></p>
                 </form>
             </div>
         </div>
     </body>
 </html>
 <script>
-
+{% comment %}
     function tijiao() {
         console.log('reset')
         submit(function(){
@@ -55,7 +55,8 @@
     function submit(callback){
         document.getElementById("denglu").submit()
         callback()
-    }
+    } {% endcomment %}
+
     {% comment %} function reset(){
         document.getElementById('denglu').reset()
     } {% endcomment %}

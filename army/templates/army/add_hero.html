@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE|default:'en-us' }}" dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr,auto' }}">
+    <head>
+        <meta charset="utf-8">
+        <title>新增🦸</title>
+    </head>
+    <body>
+        <form action="/army/add_hero/" method="post">
+            {% csrf_token %}
+            职业:
+            <select   name='role_id'>
+                {% for role in roles %}
+                <option value={{ role.id  }}>{{ role.name  }}</opton>
+                {% endfor %}
+            </select>
+
+            名字:<input name='name' autocomplete="off">
+            <input type='submit' value="新 增 🦸">
+        </form>
+
+
+    </body>
+</html>

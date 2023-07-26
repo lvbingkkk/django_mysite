@@ -1,0 +1,31 @@
+{% extends "animation/base.html" %}
+{% load static %}
+
+        {% block title %}        <title>动画三板</title>
+        {% endblock  %}
+
+
+        {% block p %}
+        <p >0123</p>
+        <img src="{% static 'img/bird184_091.jpg' %}">
+
+        {% endblock %}
+
+{% block script %}
+<script>
+    {% comment %} window.onload = function (){
+      setTimeout(gonext
+      ,100)
+    } {% endcomment %}
+    function gonext(){
+
+      console.log(window.location)
+      {% comment %} window.location.assign(location.hostname+"/animation/one") {% endcomment %}
+      {% comment %} window.open(location.hostname+'/animation/one') {% endcomment %}
+      window.location.replace(location.origin+'/animation/two')
+
+      {% comment %} window.location.assign(location.origin+'/animation/two') {% endcomment %}
+
+    }
+  </script>
+{% endblock %}

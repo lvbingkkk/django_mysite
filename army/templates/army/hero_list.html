@@ -1,0 +1,114 @@
+{% load static %}
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE|default:'en-us' }}" dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr,auto' }}">
+    <head>
+        <meta charset="utf-8">
+        <title>英雄🦸列表</title>
+        <script src="{% static  "js/jquery.min.js" %}"></script>
+
+        <style>
+            .container{
+                padding: 85px 5px 35px 5px;
+                background: #eee;
+                display: flex;
+                flex-wrap: wrap; width: 100%;
+            }
+            .hero{
+                cursor: pointer;
+                text-align: center;
+                width: 140px;
+                color: white;
+                display: inline-block;
+                padding: 30px 25px;
+                margin: 5px 10px;
+                border-radius: 15px;
+            }
+            meter::-webkit-meter-optimum-value  {
+                background: #c07131;
+            }
+            meter::-webkit-meter-suboptimum-value {
+                background: #d66646;
+            }
+            meter::-webkit-meter-even-less-good-value {
+              background: #e74747;
+            }
+            meter::-webkit-meter-bar{
+                {% comment %} background-color: #f1f1f1; {% endcomment %}
+            }
+        </style>
+    </head>
+
+    <body>
+        {% comment %} <div id="boss" style="background:peru;padding: 65px 15px;border-radius: 5px; font-weight: 350;
+        font-size: 30px;      position: relative;   width: 100%;  ">
+            BOSS: 希 尔 瓦 纳 斯
+        </div> {% endcomment %}
+
+        <p>BOSS: 希 尔 瓦 纳 斯</p>
+        <meter id="boss" value="10000" min="0" max="10000" low="3000" high="7000" optimum="8000"
+        style='margin: -5em 0;  height: 20em; width: 100%;'>2 out of 10</meter><br>
+
+        {% comment %} <meter value="0.6">60%</meter> {% endcomment %}
+        {% comment %} <br>
+        下载进度：
+        <progress value="22" max="100" style=' margin: -5em 0;  height: 20em; width: 100%;'>22
+        </progress> {% endcomment %}
+
+        <div class='container'>
+            {% for hero in heros %}
+                {% for role in roles %}
+                {% if role.id == hero.role_id  %}
+
+            <div class='hero' id={{ hero.id }} da={{ hero.Damage }}
+            style="background-color:  {{ role.color }}"> <p>{{ hero.name }}</p>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+
+        </div>
+        <p>
+            <a href='{% url 'add_hero' %}'>新增英雄</a>
+        </p>
+
+
+    </body>
+</html>
+
+<script >
+    $(function(){
+
+        $(".hero").bind('click',function(){
+            if ($("#boss").val() <= 0 ){
+                window.alert('The boss is dead')
+            }
+            var hero_id = $(this).attr("id")
+            var hero_da = $(this).attr("da")
+            console.log("this id :" , hero_id)
+            console.log("this da :" , hero_da)
+            console.log("val:",$("#boss").val() )
+            $("#boss").val($("#boss").val() - hero_da)
+            console.log($("#boss").attr("value"))
+
+            t = setTimeout(function () {
+                if ($("#boss").val() > 0 &&  $("#boss").val() < $("#boss").attr("max")){
+                    $("#boss").val($("#boss").val() + 1000)
+                    console.log('added',$("#boss").attr("max"))
+                } else{
+                    console.log('dead or max ')
+                    return
+                }
+
+            },1000)
+            console.log('t',t)
+            setTimeout(function () {
+                clearTimeout(t);
+                console.log('cleared')
+            },900)
+
+        })
+
+
+    })
+
+</script>
